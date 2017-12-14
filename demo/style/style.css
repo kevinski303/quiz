@@ -6,6 +6,30 @@ body {
     /*font-family:"Open Sans";*/
 }
 
+
+.grid{
+    min-height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.grid > div {
+    display: flex;
+    flex-basis: calc(50% - 40px);
+    justify-content: center;
+    flex-direction: row;
+}
+
+.grid2x2 > div > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.box {margin: 10px; background-color: #5e5e5e}
+
+
 .main {
     margin-left: 10px;
     margin-top: 100px;
@@ -14,16 +38,24 @@ body {
     font-size: 2em;
 }
 
+
 img {
-    width: 40%;
+    width: 80%;
+    height: 80%;
+    position: center;
+    vertical-align: middle;
+    inline-block: height
+
 }
+
+
 
 ul {
     list-style: none;
     border: solid transparent;
     width: 40%;
 }
-li {
+qbox {
     text-decoration: none;
     border: 1px solid lightgray;
     margin:10px;
@@ -57,7 +89,7 @@ li {
     background: white;
 }
 
-li:hover {
+qbox:hover {
     background: #ECEEF0;
 }
 /*disable hover effect when li tag is selected*/

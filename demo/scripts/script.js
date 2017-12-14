@@ -5,54 +5,58 @@ var currentIndex = 0, numOfAnswered = 0;
 var currentQuestion = quizQuestions[currentIndex];
 //second ulTag
 
-var ulTag = document.getElementsByTagName('ul')[1];
-var liTags = ulTag.getElementsByTagName('li');
+//var grid = document.getElementsByClassName('grid');
+var box = document.getElementsByClassName('qbox');
 
-/*
+/*********************************************************************************************/
+
+
+
+/**
 	this function inserts the current question into the layout
 	of the page: p tag which is a question and ul tag meaning
 	an options
 */
+
 function showCurrentQuestion() {
-    var headerOfDropdow = document.getElementsByClassName('wrapper')[0];
+
+    //Reset classes
+    document.getElementById('qb1').className = "qbox";
+    document.getElementById('qb2').className = "qbox";
+    document.getElementById('qb3').className = "qbox";
+    document.getElementById('qb4').className = "qbox";
+
+    /*var headerOfDropdow = document.getElementsByClassName('wrapper')[0];
     //parse into integer, because it interpretes it as a string
     var numQuestion = parseInt(currentIndex)+1;
-    headerOfDropdow.getElementsByTagName('span')[0].innerHTML = numQuestion;
-    //var pTag = document.getElementsByTagName('p')[0];
+    headerOfDropdow.getElementsByTagName('span')[0].innerHTML = numQuestion;*/
+
+    var pTag = document.getElementsByTagName('p')[0];
     var audioSrc = document.getElementById('audiosrc');
-     // console.log(liTags);
 
-
-    var ulTag = document.getElementsByTagName('ul')[1];
-    var liTags = ulTag.getElementsByTagName('li');
-
-    //pTag.innerHTML = currentQuestion.question;
-
+    pTag.innerHTML = currentQuestion.question;
 
     audioSrc.src = "content/audio/"+ currentQuestion.audio;
     document.getElementById('audio').load();
-
 
     document.getElementById('answer0').src = "content/img" + currentQuestion.variants[0];
     document.getElementById('answer1').src = "content/img" + currentQuestion.variants[1];
     document.getElementById('answer2').src = "content/img" + currentQuestion.variants[2];
     document.getElementById('answer3').src = "content/img" + currentQuestion.variants[3];
 
-
-    for (var i=0; i < liTags.length; i++) {
-        //in case the number of variants is less than 4 (e.g. when it's
-        // undefined) disable li tag
+    for (var i=0; i < box.length; i++) {
+        //in case the number of variants is less than 4 (e.g. when it'sundefined) disable li tag
         if (currentQuestion.variants[i] == undefined) {
             console.log(currentQuestion.variants[i]);
-            liTags[i].className = "doNotDisplay";
+            box[i].className = "doNotDisplay";
         } else {
-            //console.log(currentQuestion.variants[i]);
-            liTags[i].querySelector("img").src = "content/img" + currentQuestion.variants[i]; //assign question
-            liTags[i].className = "";
+            //assign question(s)
+            box[i].querySelector("img").src = "content/img" + currentQuestion.variants[i];
+            box[i].className = "qbox";
         }
     }
-};
-
+}
+/*********************************************************************************************/
 enableLiOnClickEvents();
 showCurrentQuestion();
 
@@ -64,23 +68,22 @@ function changeLiStyle() {
     this.className = "selected";
 }
 
-
 //self-invoking function to find all li tags
 // and assing them text from the object
 // and assign event listeners
 function enableLiOnClickEvents() {
-    for (var i=0; i < liTags.length; i++) {
-        console.log(liTags[i]);
-        liTags[i].onclick = changeLiStyle;
-    }
-};
+    for (var i=0; i < box.length; i++) {
 
+        console.log(box[i]);
+        box[i].onclick = changeLiStyle;
+    }
+}
 var button = document.getElementsByClassName('submit')[0];
 button.onclick = submitAndCheckAnswer;
 
 function submitAndCheckAnswer() {
     var selectedItem = document.getElementsByClassName('selected')[0];
-    /*	console.log(selectedItem.innerHTML);*/
+    console.log(selectedItem.innerHTML);
     if (selectedItem == undefined)
         alert("There is no variant selected! Please select any!");
     else {
@@ -97,10 +100,13 @@ function submitAndCheckAnswer() {
             console.log("Wrong!");
             changeTheLayoutAccordingTheResult(selectedItem,"wrong", false);
             checkIfTheLastQuestion(this);
-            liTags[currentQuestion.answer].className = "correct";
+            console.log(box[currentQuestion]);
+            box[currentQuestion.answer].className = "correct";
         }
     }
 }
+
+
 
 function changeTheLayoutAccordingTheResult(selectedItem,result,replied) {
     console.log(result);
@@ -131,17 +137,22 @@ function checkIfTheLastQuestion(button) {
 }
 
 function disableLiOnClickEvents() {
-    for (var i=0; i < liTags.length; i++) {
-        liTags[i].onclick = "";
+    for (var i=0; i < box.length; i++) {
+        box[i].onclick = "";
     }
 }
 
 function goToNextQuestion() {
+
+
+
+
     // if (currentIndex == quizQuestions.length) {
     // 	finalize();
     // 	return alert("Quiz is over. Your result: " + numOfAnswered);
     // }
     //changes the current question index before moving to the next one
+
     currentQuestion = quizQuestions[currentIndex];
     //change button's label and event handler
     this.innerHTML = "Submit";
@@ -224,6 +235,7 @@ function finalize() {
     // tr.appendChild(head2);
     // document.body.appendChild(table);
 }
+
 //dynamicaally creates the question layout when clicked on any of the questions in the result table
 function createQuestionLayout() {
     var mainDiv = document.getElementsByClassName('main')[0];
@@ -275,11 +287,11 @@ function returnToQuestion() {
     if (quizQuestions[questionNum-1].enabled) {
         if (quizQuestions[questionNum-1].replied) {
 
-            document.getElementsByTagName("li")[correctLiNum+4].className="correct";
+            document.getElementsByClassName("box")[correctLiNum+4].className="correct";
         } else {
             var selectedLiNum = quizQuestions[questionNum-1].selectionOfUser;
-            document.getElementsByTagName("li")[selectedLiNum+4].className="wrong";
-            document.getElementsByTagName("li")[correctLiNum+4].className="correct";
+            document.getElementsByClassName("box")[selectedLiNum+4].className="wrong";
+            document.getElementsByClassName("box")[correctLiNum+4].className="correct";
 
         }
     }
@@ -297,7 +309,7 @@ function showDropdown() {
     }
     else {
         dropdown.style.display ="";
-    };
+    }
 }
 
 function hideDropdown() {
@@ -309,13 +321,14 @@ function hideDropdown() {
     }
     else {
         dropdown.style.display ="";
-    };
+    }
 }
 
 /*
 the number of action taken when any of the ul items is clicked on:
 getting the number of question and show the current question
 */
+
 function clickOnAnyQuestionFromDropdown() {
     console.log(this);
     var questionNum = this.getElementsByTagName('span')[0].innerHTML;
@@ -324,10 +337,11 @@ function clickOnAnyQuestionFromDropdown() {
     currentIndex = questionNum-1;
     showCurrentQuestion();
 }
-// function enableLiOnClickEvents() {
-// 	for (var i=0; i < liTags.length; i++) {
-// 		// console.log(liTags[i]);
-// 		liTags[i].onclick = "";
-// 	}
-// }
+/*
+function enableLiOnClickEvents() {
+ 	for (var i=0; i < box.length; i++) {
+ 		console.log(box[i]);
+ 		box[i].onclick = "";
+ 	}
+}*/
 

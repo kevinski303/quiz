@@ -36,3 +36,67 @@ quizQuestions[1] = new QuizItem(
     false,
     undefined);
 
+quizQuestions[2] = new QuizItem(
+    "Welches Tier hören Sie:",
+    'animal02.mp3',
+    [   '/question02/answer00.jpg',
+        '/question02/answer01.jpg',
+        '/question02/answer02.jpg',
+        '/question02/answer03.jpg'
+    ],
+    1,
+    false,
+    false,
+    undefined);
+
+quizQuestions[3] = new QuizItem(
+    "Welches Tier hören Sie:",
+    'animal03.mp3',
+    [   '/question03/answer00.jpg',
+        '/question03/answer01.jpg',
+        '/question03/answer02.jpg',
+        '/question03/answer03.jpg'
+    ],
+    2,
+    false,
+    false,
+    undefined);
+
+quizQuestions[4] = new QuizItem(
+    "Welches Tier hören Sie:",
+    'animal04.mp3',
+    [   '/question04/answer00.jpg',
+        '/question04/answer01.jpg',
+        '/question04/answer02.jpg',
+        '/question04/answer03.jpg'
+    ],
+    0,
+    false,
+    false,
+    undefined);
+
+quizQuestions[5] = new QuizItem(
+    "Welches Tier hören Sie:",
+    'animal05.mp3',
+    [   '/question05/answer00.jpg',
+        '/question05/answer01.jpg',
+        '/question05/answer02.jpg',
+        '/question05/answer03.jpg'
+    ],
+    3,
+    false,
+    false,
+    undefined);
+
+quizQuestions[6] = new QuizItem(
+    "Welches Tier hören Sie:",
+    'animal06.mp3',
+    [   '/question06/answer00.jpg',
+        '/question06/answer01.jpg',
+        '/question06/answer02.jpg',
+        '/question06/answer03.jpg'
+    ],
+    1,
+    false,
+    false,
+    undefined);

@@ -3,9 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quiz</title>
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link href="style/bootstrap337/css/bootstrap.min.css" rel="stylesheet">
+
     <!--Source: https://codepen.io/anon/pen/eyOEJO?limit=all&page=4&q=quiz-->
 </head>
 <body>
@@ -26,14 +30,16 @@
     <audio id="audio" controls controlsList="nodownload">
         <source id="audiosrc" src="" type="audio/mpeg">
     </audio>
-    <ul>
-        <li><img id="answer0" src="" ></li>
-        <li><img id="answer1" src=""></li>
-        <li><img id="answer2" src=""></li>
-        <li><img id="answer3" src=""></li>
-    </ul>
+    <div class="grid">
+        <div class="qbox" id="qb1"><img id="answer0" src=""></div>
+        <div class="qbox" id="qb2"><img id="answer1" src=""></div>
+        <div class="qbox" id="qb3"><img id="answer2" src=""></div>
+        <div class="qbox" id="qb4"><img id="answer3" src=""></div>
+    </div>
     <button class="submit">Submit</button>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="style/bootstrap337/js/bootstrap.min.js"></script>
 <script src="scripts/quizitem.js"></script>
 <script src="scripts/script.js"></script>
 </body>
