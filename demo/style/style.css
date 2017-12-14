@@ -12,6 +12,8 @@ body {
 }
 
 .grid{
+    margin-top: 5%;
+    margin-bottom: 5%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -32,28 +34,30 @@ body {
 }
 
 .box {
+    display: flex;
+    flex-wrap: wrap;
     margin: 10px;
     height: 40px;
     line-height: 200px;
 }
 
 .main {
-    margin-left: 10px;
-    margin-top: 100px;
+    margin-left: auto;
+    margin-top: auto;
 }
 .question {
     font-size: 1.5em;
 }
 
 img {
+    margin: auto;
     width: 90%;
     height: 90%;
-    position: center;
+    /*position: center;
     vertical-align: middle;
-    horiz-align: middle;
-    background-position: center center;
-    background-repeat: no-repeat;
-
+    horiz-align: middle;*/
+    border-radius: 3px;
+    object-fit: cover;
 }
 
 ul {
@@ -101,23 +105,29 @@ qbox:hover {
 /*disable hover effect when li tag is selected*/
 .selected, .selected:hover {
     background: #FFDEAD;
+    border-radius: 3px;
 }
 
 .correct, .correct:hover {
     background: #9ACD32;
     color: white;
+    border-radius: 3px;
 }
 
 .wrong, .wrong:hover {
     background: red;
     color: white;
+    border-radius: 3px;
 }
 
 button {
-    padding:5px 14px;
-    font-size: 1.1em;
-    border:none;
-    border-radius: 5px;
+    padding: 20px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 3px;
+    position: center;
+    margin: 0px auto;
+    width: 95%;
 }
 .submit {
     color: white;
@@ -137,7 +147,7 @@ button {
 }
 
 td,th {
-    border:1px solid lightgray;
+    border:0px solid lightgray;
     padding: 10px;
     text-transform: uppercase;
     font-weight: 700;
@@ -153,6 +163,7 @@ table {
     border:2px solid gray;
     border-spacing: 0px;
     border-collapse: collapse;
+    width: 90%;
 }
 
 td {

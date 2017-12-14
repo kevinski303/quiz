@@ -86,7 +86,6 @@ function submitAndCheckAnswer() {
     if (selectedItem == undefined)
         alert("Keine Auswahl getätigt!");
     else {
-        debugger;
         currentQuestion.enabled = true;
         if (selectedItem.id == currentQuestion.answer) {
             console.log("Correct "+ currentQuestion.variants.indexOf(selectedItem.innerHTML));
@@ -129,7 +128,7 @@ function checkIfTheLastQuestion(button) {
     } else {
         console.log(currentIndex +"fdsf " + quizQuestions.length);
         currentIndex++;
-        button.innerHTML = "Next Question";
+        button.innerHTML = "Nächste Frage";
         button.className = "next";
         button.onclick = goToNextQuestion;
     }
@@ -154,7 +153,7 @@ function goToNextQuestion() {
 
     currentQuestion = quizQuestions[currentIndex];
     //change button's label and event handler
-    this.innerHTML = "Submit";
+    this.innerHTML = "Auswahl Prüfen";
     this.onclick = submitAndCheckAnswer;
     this.className = "submit";
     showCurrentQuestion();
@@ -175,18 +174,18 @@ function finalize() {
     cleanUpTheLayout();
     var mainDiv = document.getElementsByClassName('main')[0];
     var tHeader = document.createElement("p");
-    tHeader.appendChild(document.createTextNode("Review your answers"));
+    tHeader.appendChild(document.createTextNode("Ergebnis"));
     tHeader.setAttribute("class","pAboveTable");
     mainDiv.appendChild(tHeader);
     var table = document.createElement("table");
     // table.border='1px';
     var tr = document.createElement("tr");
     table.appendChild(tr);
-    var heading = ["Questions", "Your results", "Correct option"];
+    var heading = ["Fragen", "Antworten"];
 
     for (var i = 0 ; i < heading.length ; i++) {
         var th = document.createElement("th");
-        th.width = '200px';
+        th.width = '20%';
         th.appendChild(document.createTextNode(heading[i]));
         tr.appendChild(th);
         console.log(tr);
@@ -196,27 +195,27 @@ function finalize() {
 
         var tr = document.createElement('tr');
         var td = document.createElement('td');
-        td.appendChild(document.createTextNode("Question " + (i+1)));
+        td.appendChild(document.createTextNode(" Frage " + (i+1)));
         td.setAttribute("class","questionCol");
         tr.appendChild(td);
         var td = document.createElement('td');
 
         var answer = quizQuestions[i].replied ? (
             td.className = "correctCol",
-                "Correct"
+                " Richtig"
         ) : (
             td.className = "wrongCol",
-                "Incorrect"
+                " Falsch"
         );
 
         td.appendChild(document.createTextNode(answer));
         tr.appendChild(td);
-        var td = document.createElement('td');
-        if (!quizQuestions[i].replied) {
+        /*var td = document.createElement('td');
+        /*if (!quizQuestions[i].replied) {
             var correctAns = quizQuestions[i].variants[quizQuestions[i].answer];
             td.appendChild(document.createTextNode(correctAns));
             td.setAttribute("class","correctCol");
-        }
+        }*/
         tr.appendChild(td);
 
         table.appendChild(tr);
