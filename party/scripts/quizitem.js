@@ -31,7 +31,7 @@ quizQuestions[1] = new QuizItem(
         '/question01/answer02.jpg',
         '/question01/answer03.jpg'
     ],
-    "3",
+    "1",
     false,
     false,
     undefined);
@@ -44,7 +44,7 @@ quizQuestions[2] = new QuizItem(
         '/question02/answer02.jpg',
         '/question02/answer03.jpg'
     ],
-    "1",
+    "0",
     false,
     false,
     undefined);
@@ -57,7 +57,7 @@ quizQuestions[3] = new QuizItem(
         '/question03/answer02.jpg',
         '/question03/answer03.jpg'
     ],
-    "2",
+    "3",
     false,
     false,
     undefined);
@@ -70,7 +70,7 @@ quizQuestions[4] = new QuizItem(
         '/question04/answer02.jpg',
         '/question04/answer03.jpg'
     ],
-    "0",
+    "2",
     false,
     false,
     undefined);
@@ -84,19 +84,6 @@ quizQuestions[5] = new QuizItem(
         '/question05/answer03.jpg'
     ],
     "3",
-    false,
-    false,
-    undefined);
-
-quizQuestions[6] = new QuizItem(
-    " ",
-    'audio06.mp3',
-    [   '/question06/answer00.jpg',
-        '/question06/answer01.jpg',
-        '/question06/answer02.jpg',
-        '/question06/answer03.jpg'
-    ],
-    "1",
     false,
     false,
     undefined);
