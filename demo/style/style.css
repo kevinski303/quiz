@@ -6,17 +6,21 @@ body {
     /*font-family:"Open Sans";*/
 }
 
+.gridtop{
+    display: block;
+    height: 70%;
+}
 
 .grid{
-    min-height: 60%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    height: 70%;
 }
 
 .grid > div {
     display: flex;
-    flex-basis: calc(50% - 40px);
+    flex-basis: calc(50% - 10px);
     justify-content: center;
     flex-direction: row;
 }
@@ -27,28 +31,30 @@ body {
     flex-direction: row;
 }
 
-.box {margin: 10px; background-color: #5e5e5e}
-
+.box {
+    margin: 10px;
+    height: 40px;
+    line-height: 200px;
+}
 
 .main {
     margin-left: 10px;
     margin-top: 100px;
 }
 .question {
-    font-size: 2em;
+    font-size: 1.5em;
 }
-
 
 img {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     position: center;
     vertical-align: middle;
-    inline-block: height
+    horiz-align: middle;
+    background-position: center center;
+    background-repeat: no-repeat;
 
 }
-
-
 
 ul {
     list-style: none;

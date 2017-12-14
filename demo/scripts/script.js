@@ -11,7 +11,6 @@ var box = document.getElementsByClassName('qbox');
 /*********************************************************************************************/
 
 
-
 /**
 	this function inserts the current question into the layout
 	of the page: p tag which is a question and ul tag meaning
@@ -21,10 +20,10 @@ var box = document.getElementsByClassName('qbox');
 function showCurrentQuestion() {
 
     //Reset classes
-    document.getElementById('qb1').className = "qbox";
-    document.getElementById('qb2').className = "qbox";
-    document.getElementById('qb3').className = "qbox";
-    document.getElementById('qb4').className = "qbox";
+    document.getElementById(0).className = "qbox";
+    document.getElementById(1).className = "qbox";
+    document.getElementById(2).className = "qbox";
+    document.getElementById(3).className = "qbox";
 
     /*var headerOfDropdow = document.getElementsByClassName('wrapper')[0];
     //parse into integer, because it interpretes it as a string
@@ -68,7 +67,7 @@ function changeLiStyle() {
     this.className = "selected";
 }
 
-//self-invoking function to find all li tags
+//self-invoking function to find all box tags
 // and assing them text from the object
 // and assign event listeners
 function enableLiOnClickEvents() {
@@ -83,13 +82,13 @@ button.onclick = submitAndCheckAnswer;
 
 function submitAndCheckAnswer() {
     var selectedItem = document.getElementsByClassName('selected')[0];
-    console.log(selectedItem.innerHTML);
+    console.log(selectedItem);
     if (selectedItem == undefined)
-        alert("There is no variant selected! Please select any!");
+        alert("Keine Auswahl getätigt!");
     else {
+        debugger;
         currentQuestion.enabled = true;
-        if (selectedItem.innerHTML == currentQuestion.variants[currentQuestion.answer]) {
-
+        if (selectedItem.id == currentQuestion.answer) {
             console.log("Correct "+ currentQuestion.variants.indexOf(selectedItem.innerHTML));
             changeTheLayoutAccordingTheResult(selectedItem,"correct", true);
             checkIfTheLastQuestion(this);//sending button obj as a parameter
@@ -101,7 +100,7 @@ function submitAndCheckAnswer() {
             changeTheLayoutAccordingTheResult(selectedItem,"wrong", false);
             checkIfTheLastQuestion(this);
             console.log(box[currentQuestion]);
-            box[currentQuestion.answer].className = "correct";
+            //box[currentQuestion.answer].className = "correct";
         }
     }
 }
@@ -171,6 +170,7 @@ function cleanUpTheLayout() {
     console.log("clean UPP!!");
 }
 
+
 function finalize() {
     cleanUpTheLayout();
     var mainDiv = document.getElementsByClassName('main')[0];
@@ -235,6 +235,7 @@ function finalize() {
     // tr.appendChild(head2);
     // document.body.appendChild(table);
 }
+
 
 //dynamicaally creates the question layout when clicked on any of the questions in the result table
 function createQuestionLayout() {

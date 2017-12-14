@@ -9,38 +9,52 @@
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link href="style/bootstrap337/css/bootstrap.min.css" rel="stylesheet">
-
-    <!--Source: https://codepen.io/anon/pen/eyOEJO?limit=all&page=4&q=quiz-->
 </head>
 <body>
-<div class="main">
-
-    <div class="wrapper" onclick="showDropdown()">
+    <div class="container-fluid">
+        <div class="page-header">
+        <h1>Quiz</h1>
+        </div>
+    <div class="main">
+        <!--<div class="wrapper" onclick="showDropdown()">
         <span>1</span>/
         <span>5</span>
+        </div>
+        <ul class="dropdown">
+            <li>Question <span>1</span></li>
+            <li>Question <span>2</span></li>
+            <li>Question <span>3</span></li>
+            <li>Question <span>4</span></li>
+            <li>Question <span>5</span></li>
+        </ul>-->
+        <p class="question"></p>
+        <audio id="audio" controls autoplay controlsList="nodownload">
+            <source id="audiosrc" src="" type="audio/mpeg">
+        </audio>
+        <div id="gridtop">
+                <div class="grid">
+                    <div class="qbox" id="0"><img id="answer0" src="" ></div>
+                    <div class="qbox" id="1"><img id="answer1" src="" ></div>
+                    <div class="qbox" id="2"><img id="answer2" src="" ></div>
+                    <div class="qbox" id="3"><img id="answer3" src="" ></div>
+                </div>
+            <br>
+            <button class="submit">Submit</button>
+        </div>
+        </div>
+        <br>
+        <hr>
+        <footer class="footer">
+            <p class="text-muted">
+                Firma<br>
+                Adresse, Ort<br>
+                Kontakt: mail@domain.tld<br>
+            </p>
+        </footer>
     </div>
-    <ul class="dropdown">
-        <li>Question <span>1</span></li>
-        <li>Question <span>2</span></li>
-        <li>Question <span>3</span></li>
-        <li>Question <span>4</span></li>
-        <li>Question <span>5</span></li>
-    </ul>
-    <p class="question"></p>
-    <audio id="audio" controls controlsList="nodownload">
-        <source id="audiosrc" src="" type="audio/mpeg">
-    </audio>
-    <div class="grid">
-        <div class="qbox" id="qb1"><img id="answer0" src=""></div>
-        <div class="qbox" id="qb2"><img id="answer1" src=""></div>
-        <div class="qbox" id="qb3"><img id="answer2" src=""></div>
-        <div class="qbox" id="qb4"><img id="answer3" src=""></div>
-    </div>
-    <button class="submit">Submit</button>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="style/bootstrap337/js/bootstrap.min.js"></script>
-<script src="scripts/quizitem.js"></script>
-<script src="scripts/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="style/bootstrap337/js/bootstrap.min.js"></script>
+    <script src="scripts/quizitem.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
