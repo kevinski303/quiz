@@ -1,2 +1,1 @@
-# quiz
-http://quiz.lgj.ch/
+# Simple QuizApp for Lgj
